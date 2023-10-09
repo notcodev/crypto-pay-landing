@@ -1,0 +1,17 @@
+@use '@/shared/text' as text;
+
+.description {
+  @include text.base-text;
+
+  &.auto {
+    color: rgb(var(--foreground-rgb));
+  }
+
+  &.light {
+    color: rgb(var(--dark-rgb));
+  }
+
+  &.dark {
+    color: rgb(var(--white-rgb));
+  }
+}

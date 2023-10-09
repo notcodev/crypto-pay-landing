@@ -9,16 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "compose-function": "^3.0.3",
+    "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "react-transition-group": "^4.4.5",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
+    "@svgr/webpack": "^8.1.0",
+    "@types/compose-function": "^0.0.31",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "@types/react-transition-group": "^4.4.7",
+    "@types/uuid": "^9.0.4",
+    "eslint": "^8.50.0",
+    "eslint-kit": "^10.5.0",
+    "prettier": "^3.0.3",
+    "sass": "^1.68.0",
+    "typescript": "latest"
   }
 }

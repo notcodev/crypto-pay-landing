@@ -1,0 +1,50 @@
+@use '@/shared/adaptive' as adaptive;
+@use '@/shared/theme' as theme;
+
+.button {
+  border: none;
+  background: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  @include adaptive.desktop {
+    width: 40px;
+    height: 40px;
+  }
+
+  @include theme.light {
+    &:hover {
+      background-color: rgba(var(--white-hover-rgb));
+    }
+  }
+
+  @include theme.dark {
+    &:hover {
+      background-color: rgba(var(--dark-hover-rgb));
+    }
+  }
+
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  @include adaptive.desktop {
+    width: 32px;
+    height: 32px;
+  }
+
+  * {
+    vector-effect: non-scaling-stroke;
+  }
+}

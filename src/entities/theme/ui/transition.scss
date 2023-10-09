@@ -1,0 +1,23 @@
+.expand-in-fade-out-enter {
+  transform: scaleY(0);
+}
+
+.expand-in-fade-out-enter-active {
+  transform: scaleY(1);
+}
+
+.expand-in-fade-out-exit {
+  opacity: 1;
+}
+
+.expand-in-fade-out-exit-active {
+  opacity: 0;
+}
+
+.expand-in-fade-out-enter-active {
+  transition: transform .7s ease;
+}
+
+.expand-in-fade-out-exit-active {
+  transition: opacity .7s ease;
+}

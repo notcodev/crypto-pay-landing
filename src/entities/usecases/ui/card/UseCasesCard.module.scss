@@ -1,0 +1,69 @@
+@use "@/shared/adaptive" as adaptive;
+
+.card {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+
+  width: 335px;
+  height: 605px;
+
+  @include adaptive.desktop {
+    width: fit-content;
+    height: 488px;
+    flex-direction: row;
+    gap: 122px;
+    align-items: center;
+  }
+}
+
+// TODO: Потом поменять
+.image {
+  width: 335px;
+  height: 335px;
+  border-radius: var(--border-radius);
+
+  @include adaptive.desktop {
+    width: 488px;
+    height: 488px;
+  }
+}
+
+.text {
+  text-align: center;
+  word-break: break-word;
+  white-space: pre-wrap;
+
+  @include adaptive.desktop {
+    text-align: left;
+  }
+}
+
+.button {
+  width: 100%;
+  text-align: center;
+
+  @include adaptive.desktop {
+    width: fit-content;
+  }
+}
+
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  @include adaptive.desktop {
+    height: fit-content;
+    width: 488px;
+    gap: 32px;
+    justify-content: flex-start;
+  }
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

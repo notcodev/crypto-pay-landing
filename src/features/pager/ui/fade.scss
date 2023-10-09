@@ -1,0 +1,62 @@
+@use '@/shared/adaptive' as adaptive;
+
+.fade-to-end-enter {
+  opacity: 0;
+  transform: translateX(100%);
+
+  @include adaptive.desktop {
+    transform: translateY(100%);
+  }
+}
+
+.fade-to-end-enter-active, .fade-to-end-exit {
+  opacity: 1;
+  transform: translateX(0%);
+
+  @include adaptive.desktop {
+    transform: translateY(0%);
+  }
+}
+
+.fade-to-end-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+
+  @include adaptive.desktop {
+    transform: translateY(-100%);
+  }
+}
+
+.fade-to-start-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+
+  @include adaptive.desktop {
+    transform: translateY(-100%);
+  }
+}
+
+.fade-to-start-enter-active, .fade-to-start-exit {
+  opacity: 1;
+  transform: translateX(0%);
+
+  @include adaptive.desktop {
+    transform: translateY(0%);
+  }
+}
+
+.fade-to-start-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+
+  @include adaptive.desktop {
+    transform: translateY(100%);
+  }
+}
+
+.fade-to-end-enter-active,
+.fade-to-end-exit-active,
+.fade-to-start-enter-active,
+.fade-to-start-exit-active {
+  transition: opacity 500ms ease, transform 500ms ease;
+}

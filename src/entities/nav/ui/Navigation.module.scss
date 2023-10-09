@@ -1,0 +1,83 @@
+@use "@/shared/adaptive" as adaptive;
+@use '@/shared/text' as text;
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+
+  height: 64px;
+  cursor: pointer;
+
+  & svg {
+    height: 46px;
+    width: 46px;
+  }
+
+  @include adaptive.desktop {
+    & svg {
+      height: 64px;
+      width: 64px;
+    }
+
+    width: 183px;
+
+    &.long {
+      width: 237px;
+    }
+  }
+}
+
+.bullets {
+  display: none;
+
+  @include adaptive.desktop {
+    display: flex;
+    list-style-type: none;
+    gap: 16px;
+  }
+}
+
+.bullet a {
+  @include text.button;
+
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &.auto {
+    color: rgb(var(--foreground-rgb));
+    &:hover {
+      background-color: rgb(var(--foreground-hover-rgb));
+    }
+  }
+
+  &.light {
+    color: rgb(var(--dark-rgb));
+    &:hover {
+      background-color: rgb(var(--white-hover-rgb));
+    }
+  }
+
+  &.dark {
+    color: rgb(var(--white-rgb));
+    &:hover {
+      background-color: rgb(var(--dark-hover-rgb));
+    }
+  }
+
+  transition: background-color .3s ease;
+  will-change: background-color;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

@@ -1,0 +1,13 @@
+@use "@/shared/adaptive" as adaptive;
+
+.header {
+  max-width: var(--full-max-width);
+  padding: 0 var(--side-padding);
+  margin: 44px auto 0;
+
+  @include adaptive.desktop {
+    margin: 40px auto 0;
+  }
+}
+
+

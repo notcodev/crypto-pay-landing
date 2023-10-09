@@ -1,0 +1,30 @@
+@use '@/shared/text' as text;
+@import './styles/index';
+
+html {
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: rgba(var(--background-rgb));
+}
+
+h1 {
+  @include text.h1;
+}
+
+h2 {
+  @include text.h2;
+}
+
+h3 {
+  @include text.h3;
+}
+
+h4 {
+  @include text.h4;
+}
+
+p {
+  @include text.base-text;
+}

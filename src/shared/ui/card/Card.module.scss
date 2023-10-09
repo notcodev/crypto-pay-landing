@@ -1,0 +1,27 @@
+@use '@/shared/text' as text;
+@use '@/shared/adaptive' as adaptive;
+
+.card, .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    gap: 16px;
+
+    @include adaptive.desktop {
+        gap: 20px;
+    }
+}
+
+.heading, .description {
+    color: rgb(var(--foreground-rgb));
+}
+
+.heading {
+    @include text.h3;
+}
+
+.description {
+    @include text.base-text;
+}
