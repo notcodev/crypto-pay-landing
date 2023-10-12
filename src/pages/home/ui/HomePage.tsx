@@ -19,9 +19,8 @@ import { PropsWithChildren, ReactElement, ReactNode } from 'react'
 import NodeJs from '@assets/icons/pl/JS.svg'
 import DotNet from '@assets/icons/pl/NET.svg'
 import Php from '@assets/icons/pl/php.svg'
-import Python from '@assets/icons/pl/python.svg'
+import Python from '@assets/icons/pl/Python.svg'
 import Go from '@assets/icons/pl/go.svg'
-import { Navigation } from '@/entities/nav/ui/Navigation'
 
 const botsPictures = Array.from({ length: 5 }).map((_, index) => ({
   path: `/images/bots/${index + 1}.png`,
