@@ -487,6 +487,7 @@
       align-items: center;
       width: 103px;
       gap: 16px;
+      text-decoration: none;
 
       @include adaptive.desktop {
         width: 170px;
