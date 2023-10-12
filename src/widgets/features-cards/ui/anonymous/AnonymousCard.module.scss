@@ -30,6 +30,10 @@
   width: 227px;
   height: auto;
 
+  &:not(:first-child) {
+    opacity: 0;
+  }
+
   @include adaptive.desktop {
     width: 356px;
   }

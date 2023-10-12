@@ -104,8 +104,9 @@
   }
 
   .animationContainer {
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 271px;
     min-height: 281px;
     width: 100%;
