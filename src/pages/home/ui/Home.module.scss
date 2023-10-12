@@ -479,6 +479,10 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+
+      @include adaptive.desktop {
+        gap: 24px;
+      }
     }
 
     .libLink {
@@ -497,12 +501,18 @@
     .icon {
       width: 63px;
       height: 63px;
+
+      @include adaptive.desktop {
+        width: 96px;
+        height: 96px;
+      }
     }
 
     .apiName {
       @include text.button;
       color: rgba(var(--dark-80-rgba));
       text-align: center;
+      word-break: break-word;
 
       @include theme.dark {
         color: rgba(var(--white-80-rgba));

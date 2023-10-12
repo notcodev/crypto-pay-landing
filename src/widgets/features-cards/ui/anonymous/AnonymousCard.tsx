@@ -23,21 +23,21 @@ export const AnonymousCard = ({ markupClass }: CardProps) => {
         <Image
           className={styles.message}
           src="/images/messages/anonymous/1.png"
-          alt="1"
+          alt="First message image"
           width={2895}
           height={1015}
         />
         <Image
           className={styles.message}
           src="/images/messages/anonymous/2.png"
-          alt="1"
+          alt="Second message image"
           width={2895}
           height={1015}
         />
         <Image
           className={styles.message}
           src="/images/messages/anonymous/3.png"
-          alt="1"
+          alt="Third message image"
           width={2895}
           height={1015}
         />
