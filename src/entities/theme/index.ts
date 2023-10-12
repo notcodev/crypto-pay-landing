@@ -1,1 +1,1 @@
-export { SunAndMoon, ThemeImage, ThemeTransitionScreen } from './ui'
+export { SunAndMoon, ThemeImage } from './ui'
