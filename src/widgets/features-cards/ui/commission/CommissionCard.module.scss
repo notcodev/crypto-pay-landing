@@ -1,0 +1,137 @@
+@use '@/shared/adaptive' as adaptive;
+@use '@/shared/theme' as theme;
+@use '@/shared/text' as text;
+
+.highlight {
+  @include text.button;
+  color: rgb(var(--blue-rgb));
+}
+
+.commissionCard {
+  @include adaptive.desktop {
+    gap: 16px;
+  }
+
+  .animationContainer {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 119px;
+
+    @include adaptive.desktop {
+      height: 152px;
+    }
+  }
+
+  &:hover .button::before {
+    @keyframes button-opacity-animation {
+      0%, 20%, 60%, 100% {
+        opacity: 0.12;
+      }
+
+      40% {
+        opacity: 0.18;
+      }
+    }
+
+    @keyframes button-filter-animation {
+      0%, 20%, 60%, 100% {
+        filter: brightness(1);
+      }
+
+      40% {
+        filter: brightness(0.8);
+      }
+    }
+
+    animation: button-opacity-animation 2s ease-out 1;
+
+    @include theme.dark {
+      animation: button-filter-animation 2s ease-out 1;
+    }
+  }
+
+  &:hover .button, &:hover .cursor {
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+  }
+
+  &:hover .button {
+    @keyframes button-scale-animation {
+      0%, 20%, 60%, 100% {
+        transform: scale(1);
+      }
+
+      40% {
+        transform: scale(1.1);
+      }
+    }
+
+    animation-name: button-scale-animation;
+  }
+
+  &:hover .cursor {
+    @keyframes cursor-position-animation {
+      0%, 100% {
+        left: calc(50% + 115px);
+        top: calc(50% + 30px);
+      }
+
+      20%, 40%, 60% {
+        left: calc(50% + 90px);
+        top: calc(50% + 15px);
+      }
+    }
+
+    animation-name: cursor-position-animation;
+  }
+
+  .button {
+    position: relative;
+    font-size: 22px;
+    line-height: 120%;
+    font-weight: 500;
+    padding: 18px 39px;
+    z-index: 0;
+    color: rgb(var(--dark-rgb));
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      border-radius: 17px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: rgba(41, 126, 226);
+      opacity: 0.12;
+      z-index: -1;
+    }
+
+    @include theme.dark {
+      color: rgb(var(--white-rgb));
+
+      &::before {
+        opacity: 1;
+        background: linear-gradient(233deg, #9FCCFA -20.48%, #0974F1 97.38%);
+      }
+    }
+  }
+
+  .cursor {
+    width: 44px;
+    height: auto;
+    position: absolute;
+    overflow: visible;
+    left: calc(50% + 115px);
+    top: calc(50% + 30px);
+    stroke: #F1F5F9;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+
+    @include theme.dark {
+      stroke: #18181D;
+    }
+  }
+}

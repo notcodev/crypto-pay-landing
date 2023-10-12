@@ -28,3 +28,8 @@ h4 {
 p {
   @include text.base-text;
 }
+
+.highlight {
+  @include text.button;
+  color: rgb(var(--blue-rgb));
+}

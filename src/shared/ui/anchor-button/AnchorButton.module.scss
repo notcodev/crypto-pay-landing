@@ -30,21 +30,30 @@
 }
 
 .secondary {
-  @include theme.light {
-    &.auto, &.light  {
-      background: rgba(var(--blue-12-rgba));
-      color: rgb(var(--deep-blue-rgb));
+  &.auto, &.light  {
+    background: rgba(var(--blue-12-rgba));
+    color: rgb(var(--deep-blue-rgb));
 
-      &:hover {
-        background: rgba(var(--blue-16-rgba));
-      }
+    &:hover {
+      background: rgba(var(--blue-16-rgba));
+    }
 
     transition: background-color .3s ease;
+  }
+
+  &.dark {
+    color: rgb(var(--white-rgb));
+    border: 1px solid rgba(var(--white-60-rgba));
+
+    &:hover {
+      border-color: rgb(var(--white-rgb));
     }
+
+    transition: border-color .3s ease;
   }
 
   @include theme.dark {
-    &.auto, &.dark  {
+    &.auto {
       color: rgb(var(--white-rgb));
       border: 1px solid rgba(var(--white-60-rgba));
 
@@ -53,6 +62,10 @@
       }
 
     transition: border-color .3s ease;
+    }
+
+    &.auto {
+      background: none;
     }
   }
 }

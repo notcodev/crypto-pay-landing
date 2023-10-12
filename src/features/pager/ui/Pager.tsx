@@ -3,11 +3,16 @@
 import './fade.scss'
 import { FC, ReactElement, SetStateAction, useRef } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
-import { useArrows } from '@/features/pager/hooks/useArrows'
-import { useDirectedPagination } from '@/features/pager/hooks/useDirectedPagination'
-import { useSwipe } from '@/features/pager/hooks/useSwipe'
+import {
+  useDirectedPagination,
+  useKeys,
+  useSwipe,
+} from '@/features/pager/hooks'
+import { useInView } from '@/shared/hooks'
 import { clsx } from '@/shared/utils'
 import styles from './Pager.module.scss'
+
+type StringDigit = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0'
 
 interface PagerProps {
   children: ReactElement[]
@@ -45,15 +50,28 @@ const PagerControls: FC<PagerControlsProps> = ({
 export const Pager: FC<PagerProps> = ({ children, className }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const nodeRef = useRef<HTMLDivElement | null>(null)
-  const { page, direction, switchPage } = useDirectedPagination(children.length)
+  const { page, direction, switchPage } = useDirectedPagination()
+  const { ref, inViewRef } = useInView<HTMLDivElement>()
 
   const decreasePage = () =>
-    switchPage((prev) => (prev === 1 ? length : prev - 1))
+    switchPage((prev) => (prev === 1 ? children.length : prev - 1))
 
   const increasePage = () =>
-    switchPage((prev) => (prev === length ? 1 : prev + 1))
+    switchPage((prev) => (prev === children.length ? 1 : prev + 1))
 
-  useArrows((key: 'ArrowLeft' | 'ArrowRight') => {
+  useKeys((key: KeyboardEvent['key']) => {
+    if (!inViewRef.current) return
+
+    const isNumericKey = (keyToCheck: string): keyToCheck is StringDigit => {
+      return Array.from({ length: 10 })
+        .map((_, index) => index.toString())
+        .includes(keyToCheck)
+    }
+
+    const handleNumericKey = (key: number) => {
+      if (key >= 1 && key <= children.length) switchPage(key)
+    }
+
     switch (key) {
       case 'ArrowLeft':
         decreasePage()
@@ -62,6 +80,7 @@ export const Pager: FC<PagerProps> = ({ children, className }) => {
         increasePage()
         break
       default:
+        if (isNumericKey(key)) handleNumericKey(Number(key))
         break
     }
   })
@@ -80,7 +99,7 @@ export const Pager: FC<PagerProps> = ({ children, className }) => {
   })
 
   return (
-    <div className={clsx(className, styles.pager)}>
+    <div className={clsx(className, styles.pager)} ref={ref}>
       <div ref={containerRef}>
         <SwitchTransition mode="out-in">
           <CSSTransition

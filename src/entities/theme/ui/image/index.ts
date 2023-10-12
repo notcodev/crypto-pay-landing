@@ -1,0 +1,1 @@
+export { ThemeImage } from './ThemeImage'

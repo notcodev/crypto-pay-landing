@@ -1,0 +1,329 @@
+@use '@/shared/adaptive' as adaptive;
+@use '@/shared/theme' as theme;
+@use '@/shared/text' as text;
+
+.highlight {
+  @include text.button;
+  color: rgb(var(--blue-rgb));
+}
+
+.exchangeCard {
+  @include adaptive.desktop {
+    gap: 16px;
+  }
+
+  .animationContainer {
+    height: 88px;
+    display: flex;
+    align-items: center;
+  }
+
+  .cryptoCurrencies {
+    display: flex;
+    position: relative;
+  }
+
+  .currency {
+    --translateX-unit: 27px;
+
+    @include adaptive.desktop {
+      --translateX-unit: 38px;
+    }
+
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    &.tether, &.bitcoin, &.ton {
+      border-style: solid;
+      border-width: 3px;
+      border-color: rgb(var(--light-rgb));
+      box-sizing: content-box;
+
+      @include adaptive.desktop {
+        border-width: 4px;
+      }
+
+      @include theme.dark {
+        border-color: rgb(var(--light-dark-rgb));
+      }
+    }
+
+    @include adaptive.desktop {
+      width: 96px;
+      height: 96px;
+    }
+
+    &.bitcoin, &.ton {
+      margin-left: -45px;
+
+      @include adaptive.desktop {
+        margin-left: -66px;
+      }
+    }
+
+    &.tether {
+      background: linear-gradient(25deg, #8DDAD5 -22.31%, #1BA27A 65.28%);
+      z-index: 0;
+
+      .logo {
+        opacity: 0;
+        width: 41px;
+        height: 38px;
+
+        @include adaptive.desktop {
+          width: 55px;
+          height: 59px;
+        }
+      }
+    }
+
+    &.bitcoin {
+      background: linear-gradient(30deg, #FF930F -50.58%, #FBC411 93.3%);
+      z-index: 1;
+
+      .logo {
+        opacity: 0;
+        width: 42px;
+        height: 51px;
+
+        @include adaptive.desktop {
+          width: 61px;
+          height: 74px;
+        }
+      }
+    }
+
+    &.ton {
+      background: linear-gradient(211deg, #04BEFE -2.24%, #4481EB 108.4%);
+      z-index: 2;
+
+      .logo {
+        margin-top: 4px;
+        width: 34px;
+        height: 34px;
+
+        @include adaptive.desktop {
+          margin-top: 6px;
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+
+    &.dollar {
+      background: linear-gradient(220deg, #010417 10.26%, #2B333F 84.25%), linear-gradient(46deg, #000 15.89%, #434343 171.16%);
+      font-size: 38px;
+      font-weight: 500;
+      color: rgb(var(--white-rgb));
+
+      @include adaptive.desktop {
+        font-size: 56px;
+      }
+
+      @include theme.dark {
+        background: linear-gradient(78deg, #181818 -16.92%, #2F2F2F 84.29%);
+      }
+    }
+  }
+
+  &:hover .currency {
+    &, .logo {
+      animation-duration: 2s;
+      animation-timing-function: ease-out;
+      animation-iteration-count: 1;
+    }
+
+    &.tether {
+      //noinspection ALL
+      @keyframes tether-currency-animation {
+        0%, 100% {
+          transform: translateX(0);
+          z-index: 0;
+        }
+
+        1% {
+          z-index: 1;
+        }
+
+        24%, 38% {
+          transform: translateX(var(--translateX-unit));
+          z-index: 1;
+        }
+
+        39% {
+          z-index: 2;
+        }
+
+        62%, 76% {
+          transform: translateX(calc(var(--translateX-unit) * 2));
+          z-index: 2;
+        }
+
+        77% {
+          z-index: 0;
+        }
+      }
+
+      .logo {
+        @keyframes tether-logo-currency-animation {
+          0%, 39%, 77%, 100% {
+            opacity: 0;
+          }
+
+          62%, 76% {
+            opacity: 1;
+          }
+        }
+
+        animation-name: tether-logo-currency-animation;
+      }
+
+      animation-name: tether-currency-animation;
+    }
+
+    &.bitcoin {
+      //noinspection ALL
+      @keyframes bitcoin-currency-animation {
+        0%, 100% {
+          transform: translateX(0);
+          z-index: 1;
+        }
+
+        1% {
+          z-index: 2;
+        }
+
+        24%, 38% {
+          transform: translateX(var(--translateX-unit));
+          z-index: 2;
+        }
+
+        39% {
+          z-index: 0;
+        }
+
+        62%, 76% {
+          transform: translateX(calc(var(--translateX-unit) * -1));
+          z-index: 0;
+        }
+
+        77% {
+          z-index: 1;
+        }
+      }
+
+      .logo {
+        @keyframes bitcoin-logo-currency-animation {
+          0%, 1%, 39%, 100% {
+            opacity: 0;
+          }
+
+          24%, 38% {
+            opacity: 1;
+          }
+        }
+
+        animation-name: bitcoin-logo-currency-animation;
+      }
+
+      animation-name: bitcoin-currency-animation;
+    }
+
+    &.ton {
+      //noinspection ALL
+      @keyframes ton-currency-animation {
+        0%, 100% {
+          transform: translateX(0);
+          z-index: 2;
+        }
+
+        1% {
+          z-index: 0;
+        }
+
+        24%, 38% {
+          transform: translateX(calc(var(--translateX-unit) * -2));
+          z-index: 0;
+        }
+
+        39% {
+          z-index: 1;
+        }
+
+        62%, 76% {
+          transform: translateX(calc(var(--translateX-unit) * -1));
+          z-index: 1;
+        }
+
+        77% {
+          z-index: 2;
+        }
+      }
+
+      .logo {
+        @keyframes ton-logo-currency-animation {
+          0%, 100% {
+            opacity: 1;
+          }
+
+          1%, 77% {
+            opacity: 0;
+          }
+        }
+
+        animation-name: ton-logo-currency-animation;
+      }
+
+      animation-name: ton-currency-animation;
+    }
+  }
+
+  .exchangeBadge {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(16px);
+    border-radius: 100px;
+    padding: 3px 8px;
+    background-color: rgba(var(--white-60-rgba));
+    outline: 1px solid rgba(var(--white-60-rgba));
+    outline-offset: -1px;
+    margin: 0 -10px;
+    z-index: 3;
+
+    @include adaptive.desktop {
+      padding: 4px 12px;
+      margin: 0 -13px;
+    }
+
+    @include theme.dark {
+      background-color: rgba(var(--dark-40-rgba));
+      outline-color: rgba(var(--dark-40-rgba));
+    }
+
+    .arrow {
+      width: 13px;
+      height: 6px;
+
+      @include adaptive.desktop {
+        width: 19px;
+        height: 9px;
+      }
+
+      & * {
+        stroke: rgb(var(--foreground-rgb));
+      }
+
+      &:last-child {
+        margin-top: -1px;
+        rotate: 180deg;
+
+        @include adaptive.desktop {
+          margin-top: -1.5px;
+        }
+      }
+    }
+  }
+}

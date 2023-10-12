@@ -1,14 +1,16 @@
 @use "@/shared/adaptive" as adaptive;
+@use "@/shared/text" as text;
+@use "@/shared/theme" as theme;
 
-.highlight {
-  color: rgb(var(--blue-rgb))
+.blueText {
+  color: rgb(var(--blue-rgb));
 }
 
-.mainSection {
+.mainBlock {
   max-width: var(--full-max-width);
   padding: 20px var(--side-padding) 32px;
   margin: 20px auto 0;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,22 +107,410 @@
   }
 }
 
-.useCasesSection {
+.useCases {
   background: rgb(var(--second-background-rgb));
   overflow: hidden;
-  
+  display: flex;
+  justify-content: center;
+
   .pager {
     @include adaptive.desktop {
       max-width: var(--max-width);
       margin: 0 auto;
     }
   }
-  
+
   margin-top: 80px;
-  padding: 32px 0;
+  padding: 32px var(--side-padding);
 
   @include adaptive.desktop {
     margin-top: 120px;
     padding: 196px 0;
   }
+
+  .pink {
+    background: linear-gradient(340deg, #FAACA8 8.42%, #DDD6F3 91.45%);
+  }
+
+  .yellow {
+    background: linear-gradient(207deg, #FCB69F 6.91%, #FFECD2 92.45%);
+  }
+
+  .blue {
+    background: linear-gradient(0deg, #C2E9FB -16.6%, #A1C4FD 106.15%);
+  }
+}
+
+.features {
+  max-width: var(--full-max-width);
+  padding: 0 var(--side-padding);
+  margin: 80px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @include adaptive.desktop {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .currencyCardMarkup {
+    @include adaptive.desktop {
+      grid-column-start: 1;
+      grid-column-end: -1;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+  }
+
+  .commissionCardMarkup {
+    @include adaptive.desktop {
+      grid-column-start: 1;
+      grid-column-end: 6;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+  }
+
+  .exchangeCardMarkup {
+    @include adaptive.desktop {
+      grid-column-start: 1;
+      grid-column-end: 6;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
+  }
+
+  .statsCardMarkup {
+    @include adaptive.desktop {
+      grid-column-start: 6;
+      grid-column-end: -1;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .verificationCardMarkup {
+    @include adaptive.desktop {
+      grid-column-start: 1;
+      grid-column-end: 8;
+      grid-row-start: 4;
+      grid-row-end: 5;
+    }
+  }
+
+  .anonymousCardMarkup {
+    @include adaptive.desktop {
+      grid-column-start: 8;
+      grid-column-end: -1;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      height: 100%;
+    }
+  }
+}
+
+.community {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  gap: 24px;
+  background-color: rgb(var(--light-rgb));
+
+  @include adaptive.desktop {
+    padding: 120px 20px;
+    gap: 40px;
+  }
+
+  @include theme.dark {
+    background-color: rgb(24, 24, 29);
+  }
+
+  .description {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  .info {
+    display: flex;
+    gap: 16px;
+
+    @include adaptive.desktop {
+      flex-direction: column;
+      width: 488px;
+    }
+  }
+
+  .step {
+    display: flex;
+    width: 335px;
+    gap: 16px;
+    flex-direction: column;
+
+    @include adaptive.desktop {
+      width: var(--max-width);
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &:not(:nth-child(3)) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .heading {
+    width: 250px;
+    text-align: center;
+    color: rgb(var(--foreground-rgb));
+
+    @include adaptive.desktop {
+      width: fit-content;
+    }
+  }
+
+  .pink {
+    background: linear-gradient(297deg, #8EC5FC 8.25%, #E0C3FC 91.76%);
+  }
+
+  .yellow {
+    background: linear-gradient(207deg, #FCB69F 6.91%, #FFECD2 92.45%);
+  }
+
+  .blue {
+    background: linear-gradient(0deg, #C2E9FB -16.6%, #A1C4FD 106.15%);
+  }
+
+  .illustration {
+    display: grid;
+    place-items: center;
+    width: 335px;
+    height: 277px;
+    border-radius: var(--border-radius);
+
+    @include adaptive.desktop {
+      width: 590px;
+      height: 488px;
+    }
+
+    .tokenImage, .apiRequestImage, .gettingUpdatesImage {
+      height: auto;
+    }
+
+    .tokenImage {
+      width: 283px;
+
+      @include adaptive.desktop {
+        width: 392px;
+      }
+    }
+
+    .apiRequestImage {
+      width: 300px;
+
+      @include adaptive.desktop {
+        width: 394px;
+      }
+    }
+
+    .gettingUpdatesImage {
+      width: 296px;
+
+      @include adaptive.desktop {
+        width: 403px;
+      }
+    }
+  }
+
+  .stepHeading, .paragraph {
+    color: rgb(var(--foreground-rgb));
+  }
+
+  .stepCounter {
+    @include text.h4;
+    color: rgb(var(--background-rgb));
+    display: grid;
+    place-items: center;
+    min-width: 36px;
+    min-height: 36px;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(220deg, #010417 10.26%, #2B333F 84.25%), linear-gradient(46deg, #000 15.89%, #434343 171.16%);
+    border-radius: 50%;
+
+    @include adaptive.desktop {
+      @include text.h3;
+      width: 64px;
+      height: 64px;
+    }
+
+    @include theme.dark {
+      background: rgb(var(--white-rgb));
+    }
+  }
+
+  .authorizingSteps, .apiRequestList, .gettingUpdatesList {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .authorizingSteps .listItem, .gettingUpdatesList .listItem {
+    @include text.base-text;
+    color: rgb(var(--foreground-rgb));
+  }
+
+  .apiRequestList .listItem::marker, .gettingUpdatesList .listItem::marker {
+    color: rgb(var(--blue-rgb));
+  }
+}
+
+.api {
+  margin-top: 80px;
+  padding: 0 var(--side-padding);
+  display: flex;
+  justify-content: center;
+
+  @include adaptive.desktop {
+    margin-top: 120px;
+  }
+
+  .container {
+    width: 335px;
+    height: 514px;
+    padding: 0 32px 28px;
+    display: flex;
+    align-items: flex-end;
+    max-width: var(--max-width);
+    border-radius: var(--border-radius);
+    background: linear-gradient(233deg, #9FCCFA -20.48%, #0974F1 97.38%);
+    position: relative;
+    overflow: hidden;
+
+    .shapes {
+      left: 0;
+      top: -150px;
+      rotate: -60deg;
+      width: 335px;
+      height: auto;
+      position: absolute;
+
+      @include adaptive.desktop {
+        width: 600px;
+        rotate: 20deg;
+        left: 600px;
+      }
+    }
+
+    .content {
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .heading, .paragraph {
+        color: rgb(var(--white-rgb));
+      }
+
+      .button {
+        text-align: center;
+        width: 100%;
+
+        @include adaptive.desktop {
+          width: fit-content;
+        }
+      }
+
+      @include adaptive.desktop {
+        width: 408px;
+        gap: 32px
+      }
+    }
+
+    @include adaptive.desktop {
+      width: 100%;
+      align-items: center;
+      height: 550px;
+      padding: 0 80px;
+    }
+  }
+}
+
+.bottomCommunity {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 40px;
+  position: relative;
+  z-index: 1;
+  border-radius: var(--border-radius);
+
+  .container {
+    width: 335px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+
+    @include adaptive.desktop {
+      width: 100%;
+    }
+
+    .heading, .paragraph {
+      text-align: center;
+      color: rgb(var(--foreground-rgb));
+    }
+
+    .paragraph {
+      @include adaptive.desktop {
+        width: 590px;
+      }
+    }
+
+    .programmingLanguages {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .libLink {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 103px;
+      gap: 16px;
+
+      @include adaptive.desktop {
+        width: 170px;
+      }
+    }
+
+    .icon {
+      width: 63px;
+      height: 63px;
+    }
+
+    .apiName {
+      @include text.button;
+      color: rgba(var(--dark-80-rgba));
+      text-align: center;
+
+      @include theme.dark {
+        color: rgba(var(--white-80-rgba));
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: calc(var(--border-radius) * -1);
+  background-color: #232328;
 }

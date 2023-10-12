@@ -1,42 +1,57 @@
+@import "https://unpkg.com/open-props/easings.min.css";
 @import '@/shared/adaptive';
 @import '@/shared/theme';
 
 :root {
-    --max-width: 1200px;
-    --side-padding: 20px;
-    --border-radius: 24px;
-    --full-max-width: calc(var(--max-width) + var(--side-padding) * 2);
+  --max-width: 1200px;
+  --side-padding: 20px;
+  --border-radius: 24px;
+  --full-max-width: calc(var(--max-width) + var(--side-padding) * 2);
+  --max-mobile-width: 600px;
+  --min-mobile-width: 335px;
 
-    --background-rgb: 255, 255, 255;
-    --second-background-rgb: 35, 35, 40;
-    --foreground-rgb: 13, 13, 18;
-    --foreground-hover-rgb: 247, 249, 251;
+  --background-rgb: 255, 255, 255;
+  --second-background-rgb: 35, 35, 40;
+  --foreground-rgb: 13, 13, 18;
+  --foreground-hover-rgb: 247, 249, 251;
+  --description-rgba: 17, 17, 17, 0.4;
+  --description-active-rgba: 17, 17, 17, 0.8;
 
-    @include desktop {
-        --border-radius: 40px;
-    }
+  --card-rgb: 247, 249, 251;
 
-    --blue-rgb: 65, 164, 223;
-    --deep-blue-rgb: 41, 126, 226;
-    --white-rgb: 255, 255, 255;
-    --dark-rgb: 13, 13, 18;
+  @include desktop {
+    --border-radius: 40px;
+  }
 
-    --white-hover-rgb: 247, 249, 251;
-    --dark-hover-rgb: 45, 45, 50;
+  --blue-rgb: 65, 164, 223;
+  --deep-blue-rgb: 41, 126, 226;
+  --white-rgb: 255, 255, 255;
+  --dark-rgb: 13, 13, 18;
+  --light-rgb: 247, 249, 251;
+  --light-dark-rgb: 26, 26, 26;
 
-    --blue-12-rgba: 41, 126, 226, 0.12;
-    --blue-16-rgba: 41, 126, 226, 0.16;
-    --dark-16-rgba: 13, 13, 18, 0.16;
-    --white-16-rgba: 255, 255, 255, 0.16;
-    --white-24-rgba: 255, 255, 255, 0.24;
-    --white-60-rgba: 255, 255, 255, 0.6;
+  --white-hover-rgb: 247, 249, 251;
+  --dark-hover-rgb: 45, 45, 50;
+
+  --blue-12-rgba: 41, 126, 226, 0.12;
+  --blue-16-rgba: 41, 126, 226, 0.16;
+  --dark-16-rgba: 13, 13, 18, 0.16;
+  --dark-40-rgba: 17, 17, 17, 0.4;
+  --dark-80-rgba: 17, 17, 17, 0.8;
+  --white-16-rgba: 255, 255, 255, 0.16;
+  --white-24-rgba: 255, 255, 255, 0.24;
+  --white-40-rgba: 255, 255, 255, 0.4;
+  --white-60-rgba: 255, 255, 255, 0.6;
+  --white-80-rgba: 255, 255, 255, 0.8;
 }
 
 [data-theme="dark"] {
-    --background-rgb: 13, 13, 18;
-    --second-background-rgb: 24, 24, 29;
-    --foreground-rgb: 255, 255, 255;
-    --foreground-hover-rgb: 45, 45, 50;
+  --background-rgb: 13, 13, 18;
+  --second-background-rgb: 24, 24, 29;
+  --foreground-rgb: 255, 255, 255;
+  --foreground-hover-rgb: 45, 45, 50;
+  --description-rgba: 255, 255, 255, 0.4;
+  --description-active-rgba: 255, 255, 255, 0.8;
 
-    --card-rgb: 24, 24, 29;
+  --card-rgb: 24, 24, 29;
 }

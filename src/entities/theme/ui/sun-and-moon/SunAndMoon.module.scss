@@ -1,0 +1,81 @@
+@use '@/shared/theme' as theme;
+@import url("https://unpkg.com/open-props/easings.min.css");
+
+.sunAndMoon {
+  --icon-rgba: var(--dark-80-rgba);
+
+  @include theme.dark {
+    --icon-rgba: var(--white-80-rgba);
+  }
+
+  & > :is(.moon, .sun, .sunBeams) {
+    transform-origin: center center;
+  }
+
+  & > :is(.moon, .sun) {
+    fill: rgba(var(--icon-rgba));
+  }
+
+  & > .sunBeams {
+    stroke: rgba(var(--icon-rgba));
+    stroke-width: 2px;
+    stroke-linecap: round;
+  }
+
+  @include theme.dark {
+    & > .sun {
+      transform: scale(1.75);
+    }
+
+    & > .sunBeams {
+      opacity: 0;
+    }
+
+    & > .moon > circle {
+      transform: translateX(-7px);
+
+      @supports (cx: 1) {
+        transform: translateX(0);
+        cx: 17;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    & > .sun {
+      transition: transform .5s var(--ease-elastic-3);
+    }
+
+    & > .sunBeams {
+      transition:
+              transform .5s var(--ease-elastic-4),
+              opacity .5s var(--ease-3);
+    }
+
+    & .moon > circle {
+      transition: transform .25s var(--ease-out-5);
+
+      @supports (cx: 1) {
+        transition: cx .25s var(--ease-out-5);
+      }
+    }
+
+    @include theme.dark {
+      & > .sun {
+        transform: scale(1.75);
+        transition-timing-function: var(--ease-3);
+        transition-duration: .25s;
+      }
+
+      & > .sunBeams {
+        transform: rotateZ(-25deg);
+        transition-duration: .15s;
+      }
+
+      & > .moon > circle {
+        transition-delay: .25s;
+        transition-duration: .5s;
+      }
+    }
+  }
+}

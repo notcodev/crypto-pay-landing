@@ -1,10 +1,11 @@
-import { RefObject, useEffect, useRef } from 'react'
+import { RefObject, useEffect } from 'react'
+import { useLatest } from '@/shared/hooks'
 
 export const useSwipe = <T extends HTMLElement>(
   ref: RefObject<T | null>,
   callback: (direction: 'left' | 'right') => void,
 ) => {
-  const callbackRef = useRef(callback)
+  const callbackRef = useLatest(callback)
 
   useEffect(() => {
     let touchStartX: number | null = null
@@ -20,7 +21,10 @@ export const useSwipe = <T extends HTMLElement>(
       const touchEndX = event.changedTouches[0].clientX
 
       if (Math.abs(touchStartX - touchEndX) > 50) {
-        callbackRef.current(touchEndX < touchStartX ? 'left' : 'right')
+        callbackRef.current?.call(
+          global,
+          touchEndX < touchStartX ? 'left' : 'right',
+        )
       }
 
       touchStartX = null

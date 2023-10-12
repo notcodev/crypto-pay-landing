@@ -1,0 +1,139 @@
+@use '@/shared/adaptive' as adaptive;
+@use '@/shared/theme' as theme;
+@use '@/shared/text' as text;
+
+.anonymousCard {
+  @include adaptive.desktop {
+    gap: 20px;
+    padding: 42px;
+  }
+}
+
+.animationContainer {
+  width: 271px;
+  height: 130px;
+  background: linear-gradient(233deg, #9FCCFA -20.48%, #0974F1 97.38%);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  @include adaptive.desktop {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+  }
+}
+
+.message {
+  position: absolute;
+  width: 227px;
+  height: auto;
+
+  @include adaptive.desktop {
+    width: 356px;
+  }
+}
+
+.anonymousCard:hover .message {
+  --translateY-unit: -10px;
+
+  @include adaptive.desktop {
+    --translateY-unit: -16px;
+  }
+
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-duration: 2.5s;
+
+  &:nth-child(1) {
+    //noinspection ALL
+    @keyframes first-message-animation {
+      0%, 73%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 3;
+      }
+
+      19%, 27% {
+        transform: translateY(var(--translateY-unit)) scale(0.9);
+        opacity: 0.5;
+        z-index: 2;
+      }
+
+      46%, 53.99% {
+        transform: translateY(calc(var(--translateY-unit) * 2)) scale(0.8);
+        opacity: 0;
+        z-index: 1;
+      }
+
+      54% {
+        transform: translateY(0) scale(1.15);
+        opacity: 0;
+        z-index: 4;
+      }
+    }
+
+    animation-name: first-message-animation;
+  }
+
+  &:nth-child(2) {
+    @keyframes second-message-animation {
+      0% {
+        transform: scale(1.15);
+        opacity: 0;
+        z-index: 3;
+      }
+
+      19%, 27% {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 3;
+      }
+
+      46%, 54% {
+        transform: translateY(var(--translateY-unit)) scale(0.9);
+        opacity: 0.5;
+        z-index: 2;
+      }
+
+      73%, 81%, 100% {
+        transform: translateY(0);
+        opacity: 0;
+        z-index: 1;
+      }
+    }
+
+    animation-name: second-message-animation;
+  }
+
+  &:nth-child(3) {
+    @keyframes third-message-animation {
+      0%, 27% {
+        transform: scale(1.15);
+        opacity: 0;
+        z-index: 3;
+      }
+
+      46%, 54% {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 3;
+      }
+
+      73%, 81% {
+        transform: translateY(var(--translateY-unit)) scale(0.9);
+        opacity: 0.5;
+        z-index: 2;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 0;
+        z-index: 1;
+      }
+    }
+
+    animation-name: third-message-animation;
+  }
+}

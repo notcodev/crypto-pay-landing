@@ -4,7 +4,7 @@ import { useLatest } from '@/shared/hooks'
 
 type Direction = 'start' | 'end'
 
-export const useDirectedPagination = (length: number) => {
+export const useDirectedPagination = () => {
   const [page, setPage] = useState<number>(1)
   const [direction, setDirection] = useState<Direction>('end')
   const latestPage = useLatest(page)

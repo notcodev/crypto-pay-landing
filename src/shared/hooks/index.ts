@@ -1,2 +1,3 @@
-export { useIsMounted } from './is-mounted'
-export { useLatest } from './latest'
+export { useInView } from './useInView'
+export { useIsMounted } from './useIsMounted'
+export { useLatest } from './useLatest'

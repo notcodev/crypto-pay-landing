@@ -1,0 +1,28 @@
+@use '@/shared/adaptive' as adaptive;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: rgb(var(--card-rgb));
+  width: 335px;
+  border-radius: var(--border-radius);
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .heading, .description {
+    color: rgb(var(--foreground-rgb))
+  }
+
+  @include adaptive.desktop {
+    padding: 42px 56px;
+    width: 100%;
+  }
+}
