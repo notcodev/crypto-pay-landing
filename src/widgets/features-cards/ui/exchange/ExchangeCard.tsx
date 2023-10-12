@@ -1,11 +1,11 @@
+import Arrow from '@assets/arrow.svg'
+import BTCLogo from '@assets/icons/currencies/logos/BTC.svg'
+import TONLogo from '@assets/icons/currencies/logos/TON.svg'
+import USDTLogo from '@assets/icons/currencies/logos/USDT.svg'
 import { FeaturesCard } from '@/entities/features'
 import { clsx } from '@/shared/utils'
 import { CardProps } from '@/widgets/features-cards/lib'
 import styles from './ExchangeCard.module.scss'
-import USDTLogo from '@assets/icons/currencies/logos/USDT.svg'
-import BTCLogo from '@assets/icons/currencies/logos/BTC.svg'
-import TONLogo from '@assets/icons/currencies/logos/TON.svg'
-import Arrow from '@assets/arrow.svg'
 
 export const ExchangeCard = ({ markupClass }: CardProps) => {
   return (

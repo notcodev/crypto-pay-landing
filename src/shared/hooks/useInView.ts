@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { debounce } from '@/shared/utils'
 
 export const useInView = <T extends HTMLElement>() => {

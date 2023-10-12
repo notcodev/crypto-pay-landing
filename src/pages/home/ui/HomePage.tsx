@@ -1,26 +1,26 @@
+import Go from '@assets/icons/pl/go.svg'
+import NodeJs from '@assets/icons/pl/JS.svg'
+import DotNet from '@assets/icons/pl/NET.svg'
+import Php from '@assets/icons/pl/php.svg'
+import Python from '@assets/icons/pl/Python.svg'
 import Image from 'next/image'
+import { PropsWithChildren, ReactElement, ReactNode } from 'react'
 import * as uuid from 'uuid'
 import { ThemeImage } from '@/entities/theme'
 import { UseCasesCard } from '@/entities/usecases'
 import { Pager } from '@/features/pager/ui/Pager'
 import { Section } from '@/shared/lib'
 import { AnchorButton, Description, Heading } from '@/shared/ui'
+import { clsx } from '@/shared/utils'
 import {
+  AnonymousCard,
   CommissionCard,
   CurrencyCard,
   ExchangeCard,
   StatsCard,
   VerificationCard,
-  AnonymousCard,
 } from '@/widgets/features-cards'
 import styles from './Home.module.scss'
-import { clsx } from '@/shared/utils'
-import { PropsWithChildren, ReactElement, ReactNode } from 'react'
-import NodeJs from '@assets/icons/pl/JS.svg'
-import DotNet from '@assets/icons/pl/NET.svg'
-import Php from '@assets/icons/pl/php.svg'
-import Python from '@assets/icons/pl/Python.svg'
-import Go from '@assets/icons/pl/go.svg'
 
 const botsPictures = Array.from({ length: 5 }).map((_, index) => ({
   path: `/images/bots/${index + 1}.png`,
@@ -310,28 +310,54 @@ const BottomCommunityBlock = () => {
           payments service unlocks.
         </p>
         <div className={styles.programmingLanguages}>
-          <a className={styles.libLink}>
+          <a
+            className={styles.libLink}
+            href="https://github.com/Foile/crypto-pay-api"
+            target="_blank"
+          >
             <NodeJs className={styles.icon} />
             <span className={styles.apiName}>crypto-pay-api</span>
           </a>
-          <a className={styles.libLink}>
+          <a
+            className={styles.libLink}
+            href="https://github.com/WinoGarcia/CryptoPay"
+            target="_blank"
+          >
             <DotNet className={styles.icon} />
             <span className={styles.apiName}>CryptoPay</span>
           </a>
-          <a className={styles.libLink}>
+          <a
+            className={styles.libLink}
+            href="https://github.com/klev-o/crypto-pay-api"
+            target="_blank"
+          >
             <Php className={styles.icon} />
             <span className={styles.apiName}>crypto-pay-api</span>
           </a>
-          <a className={styles.libLink}>
+          <a
+            className={styles.libLink}
+            href="https://github.com/layerqa/aiocryptopay"
+            target="_blank"
+          >
             <Python className={styles.icon} />
             <span className={styles.apiName}>aiocryptopay</span>
           </a>
-          <a className={styles.libLink}>
+          <a
+            className={styles.libLink}
+            href="https://github.com/arthurshafikov/cryptobot-sdk-golang"
+            target="_blank"
+          >
             <Go className={styles.icon} />
             <span className={styles.apiName}>cryptobot-sdk-golang</span>
           </a>
         </div>
-        <AnchorButton kind="general">Open Devs chat</AnchorButton>
+        <AnchorButton
+          href="https://t.me/CryptoPayDev"
+          target="_blank"
+          kind="general"
+        >
+          Open Devs chat
+        </AnchorButton>
       </div>
     </section>
   )
@@ -343,7 +369,7 @@ const BottomCommunityBlock = () => {
 //   </footer>
 // )
 
-export const HomePage = () => (
+const HomePage = () => (
   <>
     <MainBlock />
     <UseCasesBlock />
@@ -354,3 +380,5 @@ export const HomePage = () => (
     {/*<Footer/>*/}
   </>
 )
+
+export default HomePage

@@ -2,8 +2,8 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 import { FC, ReactNode } from 'react'
 import { AnchorButton, Description, Heading } from '@/shared/ui'
+import { clsx } from '@/shared/utils'
 import styles from './UseCasesCard.module.scss'
-import { clsx } from "@/shared/utils";
 
 interface UseCasesCardProps {
   imagePath: string | StaticImport
@@ -16,12 +16,18 @@ export const UseCasesCard: FC<UseCasesCardProps> = ({
   heading,
   imagePath,
   description,
-  backgroundClass
+  backgroundClass,
 }) => {
   return (
     <section className={styles.card}>
       <div className={clsx(styles.imageContainer, backgroundClass)}>
-        <Image className={styles.image} src={imagePath} alt="use-case" width={1000} height={1000}/>
+        <Image
+          className={styles.image}
+          src={imagePath}
+          alt="use-case"
+          width={1000}
+          height={1000}
+        />
       </div>
       <div className={styles.mainBlock}>
         <div className={styles.infoBlock}>
