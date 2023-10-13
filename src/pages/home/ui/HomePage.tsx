@@ -123,7 +123,7 @@ const UseCasesBlock = () => (
 )
 
 const FeaturesBlock = () => (
-  <section className={styles.features}>
+  <section className={styles.features} id="features">
     <CurrencyCard markupClass={styles.currencyCardMarkup} />
     <CommissionCard markupClass={styles.commissionCardMarkup} />
     <ExchangeCard markupClass={styles.exchangeCardMarkup} />
@@ -169,7 +169,7 @@ const Step = ({
 
 const CommunityBlock = () => {
   return (
-    <section className={styles.community}>
+    <section className={styles.community} id="how-to-start">
       <h2 className={styles.heading}>
         Quick start using <span className={styles.blueText}>Crypto Pay</span>
       </h2>
